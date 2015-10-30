@@ -1,0 +1,59 @@
+/*
+Given a sorted integer array without duplicates, return the summary of its ranges.
+
+For example, given [0,1,2,4,5,7], return ["0->2","4->5","7"].
+*/
+
+/*
+notice: integer.max_value
+
+
+*/
+
+
+
+/***************My solution*******************/
+public class Solution {
+    public List<String> summaryRanges(int[] nums) {
+        List<String> result = new ArrayList<>();
+        int begin = 0;
+
+        for(int i = 0; i < nums.length; i++) {
+            if(i != 0 && nums[i - 1] + 1 != nums[i]) {
+                add(result, nums, begin, i - 1) ;  
+                begin = i;
+            }
+            if(i == nums.length - 1)
+                add(result, nums, begin, i) ; 
+            
+        }
+        return result;
+    }
+    
+    private void add(List<String> result, int[] nums, int begin, int end) {
+        if(begin != end)
+            result.add(String.format("%d->%d",nums[begin], nums[end]));
+        else
+            result.add(Integer.toString(nums[begin]));
+    }
+   
+}
+
+/*******************Better solution*********************/
+List<String> list=new ArrayList();
+    if(nums.length==1){
+        list.add(nums[0]+"");
+        return list;
+    }
+    for(int i=0;i<nums.length;i++){
+        int a=nums[i];
+        while(i+1<nums.length&&(nums[i+1]-nums[i])==1){
+            i++;
+        }
+        if(a!=nums[i]){
+            list.add(a+"->"+nums[i]);
+        }else{
+            list.add(a+"");// !!better way of int to string
+        }
+    }
+    return list;
