@@ -1,0 +1,48 @@
+Members:
+	Gong Cheng,	gcheng2@stevens.edu
+	Maisi Li,	mli27@stevens.edu
+
+===============================================================================
+
+Redirections:
+	Only the last file will be checked for redirections.
+
+	For example: `echo hello >> file1 > file2`
+	`>> file1` will be ignored, `> file2` will be executed as output
+	redirection.
+
+Builtins:
+	If builtins are in a pipeline, they will be executed in the forked 
+	child processes, which means `exit` and `cd` will have no effect on
+	the shell.
+
+Background command:
+	'&' could only appear at the end of the last command in a pipeline.
+
+Special characters/strings:
+	Only '&', '|', '\n', '>', '<', '&', "$$", and "$?" are treated as
+	special characters/strings and will be interpreted.
+
+	Quotation marks will not be interpreted.  For example `"test  test"` 
+	will be read as `"test` and `test"`.
+
+Limitations:
+	All the limitations of the strings are defined in `sish.h`
+
+===============================================================================
+
+Collaborations:
+
+	We finished the assignment by using pair programming.  We discussed, 
+	thought and code together.  We programmed on one computer, one typed 
+	and the other inspected.  We switched roles every one hour.
+
+	We met and worked together in the library every evening.  The first
+	two days we read and discussed the manual page of sish, figured out
+	how to implement the program.  We wrote some test code to test our
+	ideas.  We built the structure of the program and began to implement 
+	the program on the third day.
+
+	Every day we spent one hour discussing questions, then four hours
+	coding.  Each of us got a copy of the code and a copy of the questions 
+	we left before we went home.
